@@ -9,17 +9,9 @@
 /*   Updated: 2024/10/07 19:32:16 by bewong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {
-	char	*tmp_s;
-
-	tmp_s = (char *)s;
-	while (n > 0)
-	{
-		*(tmp_s++) = 0;
-		n--;
-	}
+	ft_memset(s, 0, n);
 }

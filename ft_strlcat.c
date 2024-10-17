@@ -19,6 +19,8 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	size_t	bytes_to_copy;
 	size_t	copy_len;
 
+	if (!dest && size == 0)
+		return (ft_strlen(src));
 	dest_len = ft_strlen(dest);
 	src_len = ft_strlen(src);
 	if (size == 0)
@@ -33,20 +35,8 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 			copy_len = src_len;
 		else
 			copy_len = bytes_to_copy;
-		memcpy(dest + dest_len, src, copy_len);
+		ft_memcpy(dest + dest_len, src, copy_len);
 		dest[dest_len + copy_len] = '\0';
 	}
 	return (dest_len + src_len);
 }
-
-// int	main(void)
-// {
-// 	char	dst[] = "Happy ";
-// 	char	src[] = "Coding!";
-// 	size_t	size = 6;
-// 	printf("The original dst: \"%s\"\n", dst);
-// 	size_t total_size = ft_strlcat(dst, src, size);
-// 	printf("After ft_strlcat, dst: \"%s\"\n", dst);
-// 	printf("The total length: %zu\n", total_size);
-// 	return (0);
-// }

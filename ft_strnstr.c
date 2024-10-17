@@ -17,6 +17,8 @@ char	*ft_strnstr(const char *hay, const char *needle, size_t len)
 	size_t	j;
 
 	i = 0;
+	if (!hay && len == 0)
+		return ((char *)hay);
 	if (*needle == '\0')
 		return ((char *)hay);
 	while (hay[i] && i < len)
@@ -32,18 +34,3 @@ char	*ft_strnstr(const char *hay, const char *needle, size_t len)
 	}
 	return (0);
 }
-
-// int main() {
-//     const char *hay = "Hello, World!";
-//     const char *needle = "World";
-//     size_t len = 13; // Searching within the entire string
-
-//     char *result = ft_strnstr(hay, needle, len);
-//     if (result) {
-//         printf("Found substring: %s\n", result);
-//     } else {
-//         printf("Substring not found.\n");
-//     }
-
-//     return 0;
-// }

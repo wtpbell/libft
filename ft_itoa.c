@@ -20,7 +20,7 @@ static long	ft_abs(long nbr)
 
 static int	ft_len(long nbr)
 {
-	int	len;
+	size_t	len;
 
 	len = 0;
 	if (nbr <= 0)
@@ -35,73 +35,26 @@ static int	ft_len(long nbr)
 
 char	*ft_itoa(int n)
 {
-	int		len;
-	int		sign;
-	char	*c;
+	size_t	len;
 	long	nbr;
+	char	*c;
 
 	nbr = n;
-	sign = 1;
-	if (n < 0)
-		sign = -1;
 	len = ft_len(nbr);
-	c = (char *)malloc(sizeof(char) * (len + 1));
+	c = ft_calloc(len + 1, sizeof(char));
 	if (!c)
 		return (0);
-	c[len] = '\0';
-	len--;
-	while (len >= 0)
+	if (nbr == 0)
 	{
-		c[len] = '0' + ft_abs(nbr % 10);
-		nbr /= 10;
-		len--;
+		c[0] = '0';
+		return (c);
 	}
-	if (sign == -1)
+	while (len > 0)
+	{
+		c[--len] = '0' + ft_abs(nbr % 10);
+		nbr /= 10;
+	}
+	if (n < 0)
 		c[0] = '-';
 	return (c);
 }
-// int	main()
-// {
-// 	int test_cases[] = {
-// 	0,
-// 	05,
-// 	-3,
-// 	-123,
-// 	12345,
-// 	-6789,
-// 	-2147483648,
-// 	2147483647,
-// 	-1,
-// 	-123456789,
-// 	987654321
-// 	};
-
-// 	const char*	expected_outputs[] = {
-// 	"0",
-// 	"5",
-// 	"-3",
-// 		"-123",
-// 	"12345",
-// 	"-6789",
-// 	"-2147483648",
-// 	"2147483647",
-// 	"-1",
-// 	"-123456789",
-// 	"987654321"
-// 	};
-
-// 	size_t num_cases = sizeof(test_cases) / sizeof(test_cases[0]);
-// 	for (size_t i = 0; i < num_cases; i++) {
-// 	char *result = ft_itoa(test_cases[i]);
-// 	if (result) {
-// 		printf("Input: %d, Output: %s, Expected: %s\n",
-// 			test_cases[i], result, expected_outputs[i]);
-// 		free(result);
-// 	} else {
-// 		printf("Input: %d, Output: NULL (Memory allocation failed)\n",
-// 			test_cases[i]);
-// 	}
-// 	}
-
-// 	return 0;
-// }

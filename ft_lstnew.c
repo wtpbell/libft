@@ -22,19 +22,3 @@ t_list	*ft_lstnew(void *content)
 	elem -> next = NULL;
 	return (elem);
 }
-// #include <stdio.h>
-// #include <stdlib.h>
-// int main()
-// {
-// 	// Create a new list node
-// 	t_list *node = ft_lstnew("Hello, World!");
-// 	if (node)
-// 	{
-// 		// Access the content of the node
-// 		printf("%s\n", (char *)node->content);
-// 		printf("Next node: %p\n", node->next);
-// 		// Free the allocated memory for the node
-// 		free(node);
-// 	}
-// 	return 0;
-// }

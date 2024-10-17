@@ -14,7 +14,7 @@
 int	ft_lstsize(t_list *lst)
 {
 	t_list	*tmp;
-	int		i;
+	size_t	i;
 
 	tmp = lst;
 	i = 0;

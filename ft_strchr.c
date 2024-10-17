@@ -13,30 +13,15 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	unsigned int	i;
-	char			cc;
-
-	i = 0;
-	cc = (char)c;
-	while (*(s + i))
+	if (c > 255)
+		c = c % 256;
+	while (*s)
 	{
-		if (*(s + i) == c)
-			return ((char *)s + i);
-		i++;
+		if (*s == c)
+			return ((char *)s);
+		s++;
 	}
-	if (cc == '\0')
-		return ((char *)s + i);
-	return (NULL);
+	if (c == '\0')
+		return ((char *)s);
+	return (0);
 }
-// int	main(void)
-// {
-// 	char    *str = "Hello, World!";
-//     char    *result;
-
-//     result = ft_strchr(str, 'W');
-//     printf("ft_strchr: %s\n", result);
-//     result = strchr(str, 'W');
-//     printf("strchr: %s\n", result);
-
-//     return (0);
-// }

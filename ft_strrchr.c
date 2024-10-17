@@ -24,11 +24,3 @@ char	*ft_strrchr(const char *s, int c)
 	}
 	return (NULL);
 }
-
-// int	main() {
-// 	const char *str = "Hello, World!";
-// 	char *last = ft_strrchr(str, 'o');
-
-// 	printf("Last occurrence of 'o': %s\n", last);
-// 	return (0);
-// }

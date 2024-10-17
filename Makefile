@@ -1,15 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: bewong <marvin@42.fr>                      +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/10/10 19:47:50 by bewong            #+#    #+#              #
-#    Updated: 2024/10/10 19:47:50 by bewong           ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 SRCS		=	ft_atoi.c \
 				ft_bzero.c \
 				ft_calloc.c \
@@ -56,7 +44,7 @@ SRCS_BONUS	=	ft_lstadd_back.c \
 OBJS		= ${SRCS:.c=.o}
 OBJS_BONUS	= ${SRCS_BONUS:.c=.o}
 NAME		= libft.a
-CC			= gcc -Wall -Wextra -Werror
+CC			= cc -Wall -Wextra -Werror
 
 %.o: %.c libft.h
 			${CC} -I. -c $< -o ${<:.c=.o}

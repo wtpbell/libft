@@ -25,13 +25,3 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 	}
 	return (src_len);
 }
-// int	main(void)
-// {
-// 	size_t	size = 10;
-// 	char	dest[size];
-// 	char	*src = "Hello, World!";
-// 	size_t    len = ft_strlcpy(dest, src, size);
-// 	prin
-// tf("Copied string: %s\n", dest);
-// 	printf("Copied len: %zu\n", len);
-// }
